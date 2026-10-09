@@ -1,0 +1,25 @@
+[
+  {
+    "date": "2026-10-08",
+    "macrostructure": "Workbench",
+    "theme": "Bloom",
+    "theme_axes": "light / geometric-sans / warm",
+    "enrichment": "none",
+    "brief": "Suppliers page rework inside the existing Bloom system — edit-mode toggle, click-to-reveal guided add form, supplier detail sheet with contact-person history (no system change, no rotation)"
+  },
+  {
+    "date": "2026-10-08",
+    "macrostructure": "Workbench",
+    "theme": "Bloom",
+    "theme_axes": "light / geometric-sans / warm",
+    "enrichment": "none",
+    "brief": "APTC-Electrical and Building · full-app Bloom restyle — floating rail, terracotta accent, fluid viewport shell"
+  },
+  {
+    "date": "2026-10-07",
+    "macrostructure": "Workbench",
+    "theme": "catalog (tangerine)",
+    "enrichment": "none",
+    "brief": "APTC-Electrical and Building · first Hallmark pass (tokens.css stamp)"
+  }
+]

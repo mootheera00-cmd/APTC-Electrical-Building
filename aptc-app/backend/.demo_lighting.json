@@ -1,0 +1,131 @@
+{
+  "point_ids": [
+    25,
+    26
+  ],
+  "equipment_ids": [
+    22,
+    23,
+    24,
+    25,
+    26,
+    27,
+    28,
+    29,
+    30,
+    31,
+    32,
+    33
+  ],
+  "report_ids": [
+    34,
+    35,
+    36,
+    37,
+    38,
+    39,
+    40,
+    41,
+    42,
+    43,
+    44,
+    45,
+    46
+  ],
+  "log_ids": [],
+  "files": [
+    "demo-lighting-01.txt",
+    "demo-lighting-02.txt",
+    "demo-lighting-03-1.txt",
+    "demo-lighting-03.txt",
+    "demo-lighting-04.txt",
+    "demo-lighting-05-1.txt",
+    "demo-lighting-05.txt",
+    "demo-lighting-06.txt",
+    "demo-lighting-07.txt",
+    "demo-lighting-08.txt",
+    "demo-lighting-09.txt",
+    "demo-lighting-10-1.txt",
+    "demo-lighting-10.txt"
+  ],
+  "restore": {
+    "L-001": {
+      "spec": {
+        "panel_id": 1,
+        "breaker_no": "4"
+      },
+      "name_en": "",
+      "notes": "seed data — real survey later",
+      "installed_at": "2023-05-10T09:00:00"
+    },
+    "L-002": {
+      "spec": {
+        "panel_id": 1,
+        "breaker_no": "4"
+      },
+      "name_en": "L-002 (COR)",
+      "notes": "seed data — real survey later",
+      "installed_at": "2023-05-10T09:00:00"
+    },
+    "L-003": {
+      "spec": {
+        "lamp_type": "LED panel",
+        "wattage": 36,
+        "panel_id": 1,
+        "breaker_no": "1",
+        "switch_point_id": 18
+      },
+      "name_en": "L-003 (LAB1)",
+      "notes": "seed data — real survey later",
+      "installed_at": "2023-05-11T09:00:00"
+    },
+    "L-004": {
+      "spec": {
+        "lamp_type": "LED panel",
+        "wattage": 36,
+        "panel_id": 1,
+        "breaker_no": "1",
+        "switch_point_id": 18
+      },
+      "name_en": "L-004 (LAB1)",
+      "notes": "seed data — real survey later",
+      "installed_at": "2023-05-11T09:00:00"
+    },
+    "L-005": {
+      "spec": {
+        "panel_id": 1,
+        "breaker_no": "8"
+      },
+      "name_en": "L-005 (LAB2)",
+      "notes": "seed data — real survey later",
+      "installed_at": "2023-05-10T09:00:00"
+    },
+    "L-006": {
+      "spec": {
+        "panel_id": 1,
+        "breaker_no": "8"
+      },
+      "name_en": "L-006 (OFF)",
+      "notes": "seed data — real survey later",
+      "installed_at": "2023-06-01T09:00:00"
+    },
+    "L-007": {
+      "spec": {
+        "panel_id": 1,
+        "breaker_no": "8"
+      },
+      "name_en": "L-007 (MTA)",
+      "notes": "seed data — real survey later",
+      "installed_at": "2023-06-01T09:00:00"
+    },
+    "L-008": {
+      "spec": {
+        "panel_id": 1,
+        "breaker_no": "8"
+      },
+      "name_en": "L-008 (TRN)",
+      "notes": "seed data — real survey later",
+      "installed_at": "2023-06-02T09:00:00"
+    }
+  }
+}

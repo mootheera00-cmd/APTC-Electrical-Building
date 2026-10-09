@@ -1,0 +1,96 @@
+{
+  "panel_code": "MDB-1",
+  "panel_created": false,
+  "panel_id": 1,
+  "panel_fields": {
+    "room_id": 1,
+    "name_en": "Main panel LAB zone",
+    "main_amps": 100.0,
+    "main_breaker": "MCCB 100A 3P 25kA",
+    "phase": "3P 4W 400V",
+    "location_note": "LAB corridor wall",
+    "notes": "ตู้เมนหลักของโซนแล็บ — ปิดไฟทั้งโซนก่อนทำงาน"
+  },
+  "points": {
+    "L-003": {
+      "panel_id": 1,
+      "breaker_no": "1"
+    },
+    "L-004": {
+      "panel_id": 1,
+      "breaker_no": "1"
+    },
+    "P-001": {
+      "panel_id": 1,
+      "breaker_no": "2"
+    },
+    "AC-001": {
+      "panel_id": 1,
+      "breaker_no": "3"
+    },
+    "AC-002": {
+      "panel_id": null,
+      "breaker_no": null
+    },
+    "L-001": {
+      "panel_id": null,
+      "breaker_no": null
+    },
+    "L-002": {
+      "panel_id": null,
+      "breaker_no": null
+    },
+    "P-002": {
+      "panel_id": null,
+      "breaker_no": null
+    },
+    "P-003": {
+      "panel_id": null,
+      "breaker_no": null
+    },
+    "AC-003": {
+      "panel_id": null,
+      "breaker_no": null
+    },
+    "AC-004": {
+      "panel_id": null,
+      "breaker_no": null
+    },
+    "AC-005": {
+      "panel_id": null,
+      "breaker_no": null
+    },
+    "FAN-001": {
+      "panel_id": 1,
+      "breaker_no": "1"
+    },
+    "L-005": {
+      "panel_id": null,
+      "breaker_no": null
+    },
+    "L-006": {
+      "panel_id": null,
+      "breaker_no": null
+    },
+    "L-007": {
+      "panel_id": null,
+      "breaker_no": null
+    },
+    "L-008": {
+      "panel_id": null,
+      "breaker_no": null
+    },
+    "SW-101": {
+      "panel_id": 1,
+      "breaker_no": "1"
+    },
+    "SEN-001": {
+      "panel_id": null,
+      "breaker_no": null
+    },
+    "P-004": {
+      "panel_id": null,
+      "breaker_no": null
+    }
+  }
+}

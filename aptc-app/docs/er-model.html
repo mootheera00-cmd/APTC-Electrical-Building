@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>APTC · Conceptual Data Model (ER)</title>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--color-paper:#f5f5f5;--color-ink:#2d3142;--color-muted:#4f5d75;--color-soft:#7a8399;--color-accent:#eb6c36;--font-sans:'Geist',system-ui,sans-serif;--font-serif:'Instrument Serif',serif;--font-mono:'Geist Mono',ui-monospace,monospace}
+html,body{overflow-x:clip}
+body{font-family:var(--font-sans);background:var(--color-paper);color:var(--color-ink);min-height:100vh;display:flex;align-items:center;justify-content:center;padding:3rem 2rem}
+.frame{max-width:1220px;width:100%}
+.eyebrow{font-family:var(--font-mono);font-size:.66rem;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--color-muted);margin-bottom:.5rem}
+h1{font-family:var(--font-serif);font-size:clamp(1.5rem,2.4vw + .75rem,2rem);font-weight:400;letter-spacing:-.02em;line-height:1.15;margin-bottom:.25rem}
+.sub{color:var(--color-muted);font-size:.9rem;margin-bottom:1.5rem}
+svg{width:100%;min-width:1000px;display:block}
+footer{margin-top:1.5rem;border-top:1px solid rgba(45,49,66,.12);padding-top:.75rem;font-family:var(--font-mono);font-size:.7rem;color:var(--color-soft)}
+</style>
+</head>
+<body>
+<div class="frame">
+<p class="eyebrow">ER / data model · APTC-Electrical and Building · conceptual</p>
+<h1>Eight entities, one aggregate root</h1>
+<p class="sub"><b>install_points</b> is the aggregate root: history (equipments, reports, repairs) always hangs off the point, never the reverse. Physical DDL lives in <span style="font-family:var(--font-mono)">backend/app/models.py</span>.</p>
+<svg viewBox="0 0 1160 820" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="aptc-er-title aptc-er-desc">
+<title id="aptc-er-title">APTC conceptual entity-relationship model</title>
+<desc id="aptc-er-desc">Entity-relationship diagram with eight entities centred on install_points, showing buildings, floors, rooms, users, equipments, reports and repairs.</desc>
+<defs>
+<marker id="arrow" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#4f5d75"/></marker>
+</defs>
+<rect width="100%" height="100%" fill="#f5f5f5"/>
+<!-- relationships (behind boxes) -->
+<line x1="360" y1="176" x2="420" y2="176" stroke="#4f5d75" stroke-width="1.2"/>
+<line x1="740" y1="176" x2="800" y2="176" stroke="#4f5d75" stroke-width="1.2"/>
+<path d="M960,258 L960,322 Q960,330 952,330 L740,330" fill="none" stroke="#4f5d75" stroke-width="1.2" marker-end="url(#arrow)"/>
+<line x1="740" y1="392" x2="800" y2="392" stroke="#4f5d75" stroke-width="1.2"/>
+<line x1="580" y1="474" x2="580" y2="500" stroke="#4f5d75" stroke-width="1.2"/>
+<line x1="740" y1="600" x2="800" y2="600" stroke="#4f5d75" stroke-width="1.2"/>
+<path d="M200,438 L200,592 Q200,600 208,600 L420,600" fill="none" stroke="#4f5d75" stroke-width="1.2" marker-end="url(#arrow)"/>
+<!-- cardinality -->
+<text x="368" y="168" fill="#4f5d75" font-size="8" font-family="'Geist Mono',monospace">1</text>
+<text x="404" y="168" fill="#4f5d75" font-size="8" font-family="'Geist Mono',monospace">N</text>
+<text x="748" y="168" fill="#4f5d75" font-size="8" font-family="'Geist Mono',monospace">1</text>
+<text x="784" y="168" fill="#4f5d75" font-size="8" font-family="'Geist Mono',monospace">N</text>
+<text x="748" y="384" fill="#4f5d75" font-size="8" font-family="'Geist Mono',monospace">1</text>
+<text x="784" y="384" fill="#4f5d75" font-size="8" font-family="'Geist Mono',monospace">N</text>
+<text x="588" y="492" fill="#4f5d75" font-size="8" font-family="'Geist Mono',monospace">1/N</text>
+<text x="748" y="592" fill="#4f5d75" font-size="8" font-family="'Geist Mono',monospace">1</text>
+<text x="784" y="592" fill="#4f5d75" font-size="8" font-family="'Geist Mono',monospace">N</text>
+<!-- ROW 1 -->
+<g>
+<rect x="40" y="120" width="320" height="138" rx="6" fill="#f5f5f5" stroke="rgba(45,49,66,0.03)"/>
+<rect x="40" y="120" width="320" height="138" rx="6" fill="rgba(45,49,66,0.05)" stroke="#4f5d75" stroke-width="1"/>
+<rect x="48" y="128" width="52" height="12" rx="2" fill="transparent" stroke="rgba(79,93,117,0.40)" stroke-width="0.8"/>
+<text x="74" y="137" fill="rgba(79,93,117,0.8)" font-size="7" font-family="'Geist Mono',monospace" text-anchor="middle" letter-spacing="0.08em">ENTITY</text>
+<text x="200" y="152" fill="#2d3142" font-size="12" font-weight="600" font-family="'Geist',sans-serif" text-anchor="middle">users</text>
+<text x="56" y="176" fill="#4f5d75" font-size="9" font-family="'Geist Mono',monospace"># id</text>
+<text x="56" y="194" fill="#4f5d75" font-size="9" font-family="'Geist Mono',monospace">username UQ · name</text>
+<text x="56" y="212" fill="#4f5d75" font-size="9" font-family="'Geist Mono',monospace">role: admin/reporter/tech</text>
+<text x="56" y="230" fill="#4f5d75" font-size="9" font-family="'Geist Mono',monospace">active</text>
+</g>
+<g>
+<rect x="420" y="120" width="320" height="112" rx="6" fill="#f5f5f5" stroke="rgba(45,49,66,0.03)"/>
+<rect x="420" y="120" width="320" height="112" rx="6" fill="rgba(45,49,66,0.05)" stroke="#4f5d75" stroke-width="1"/>
+<rect x="428" y="128" width="52" height="12" rx="2" fill="transparent" stroke="rgba(79,93,117,0.40)" stroke-width="0.8"/>
+<text x="454" y="137" fill="rgba(79,93,117,0.8)" font-size="7" font-family="'Geist Mono',monospace" text-anchor="middle" letter-spacing="0.08em">ENTITY</text>
+<text x="580" y="152" fill="#2d3142" font-size="12" font-weight="600" font-family="'Geist',sans-serif" text-anchor="middle">buildings</text>
+<text x="436" y="176" fill="#4f5d75" font-size="9" font-family="'Geist Mono',monospace"># id</text>
+<text x="436" y="194" fill="#4f5d75" font-size="9" font-family="'Geist Mono',monospace">name_en · name_th</text>
+<text x="436" y="212" fill="#4f5d75" font-size="9" font-family="'Geist Mono',monospace">description</text>
+</g>
+<g>
+<rect x="800" y="120" width="320" height="138" rx="6" fill="#f5f5f5" stroke="rgba(45,49,66,0.03)"/>
+<rect x="800" y="120" width="320" height="138" rx="6" fill="rgba(45,49,66,0.05)" stroke="#4f5d75" stroke-width="1"/>
+<rect x="808" y="128" width="52" height="12" rx="2" fill="transparent" stroke="rgba(79,93,117,0.40)" stroke-width="0.8"/>
+<text x="834" y="137" fill="rgba(79,93,117,0.8)" font-size="7" font-family="'Geist Mono',monospace" text-anchor="middle" letter-spacing="0.08em">ENTITY</text>
+<text x="960" y="152" fill="#2d3142" font-size="12" font-weight="600" font-family="'Geist',sans-serif" text-anchor="middle">floors</text>
+<text x="816" y="176" fill="#4f5d75" font-size="9" font-family="'Geist Mono',monospace"># id · → building_id</text>
+<text x="816" y="194" fill="#4f5d75" font-size="9" font-family="'Geist Mono',monospace">name_en · level</text>
+<text x="816" y="212" fill="#4f5d75" font-size="9" font-family="'Geist Mono',monospace">plan_image (upload)</text>
+<text x="816" y="230" fill="#4f5d75" font-size="9" font-family="'Geist Mono',monospace">is_active</text>
+</g>
+<!-- ROW 2 -->
+<g>
+<rect x="40" y="300" width="320" height="138" rx="6" fill="#f5f5f5" stroke="rgba(45,49,66,0.03)"/>
+<rect x="40" y="300" width="320" height="138" rx="6" fill="rgba(45,49,66,0.05)" stroke="#4f5d75" stroke-width="1"/>
+<rect x="48" y="308" width="52" height="12" rx="2" fill="transparent" stroke="rgba(79,93,117,0.40)" stroke-width="0.8"/>
+<text x="74" y="317" fill="rgba(79,93,117,0.8)" font-size="7" font-family="'Geist Mono',monospace" text-anchor="middle" letter-spacing="0.08em">ENTITY</text>
+<text x="200" y="332" fill="#2d3142" font-size="12" font-weight="600" font-family="'Geist',sans-serif" text-anchor="middle">rooms</text>
+<text x="56" y="356" fill="#4f5d75" font-size="9" font-family="'Geist Mono',monospace"># id · → floor_id</text>
+<text x="56" y="374" fill="#4f5d75" font-size="9" font-family="'Geist Mono',monospace">code UQ · name_en</text>
+<text x="56" y="392" fill="#4f5d75" font-size="9" font-family="'Geist Mono',monospace">name_th · room_type</text>
+<text x="56" y="410" fill="#4f5d75" font-size="9" font-family="'Geist Mono',monospace">is_active</text>
+</g>
+<g>
+<rect x="420" y="300" width="320" height="174" rx="6" fill="#f5f5f5" stroke="rgba(45,49,66,0.03)"/>
+<rect x="420" y="300" width="320" height="174" rx="6" fill="rgba(235,108,54,0.08)" stroke="#eb6c36" stroke-width="1"/>
+<rect x="428" y="308" width="52" height="12" rx="2" fill="transparent" stroke="rgba(235,108,54,0.55)" stroke-width="0.8"/>
+<text x="454" y="317" fill="rgba(235,108,54,0.9)" font-size="7" font-family="'Geist Mono',monospace" text-anchor="middle" letter-spacing="0.08em">ROOT</text>
+<text x="580" y="332" fill="#2d3142" font-size="12" font-weight="600" font-family="'Geist',sans-serif" text-anchor="middle">install_points ★</text>
+<text x="436" y="356" fill="#4f5d75" font-size="9" font-family="'Geist Mono',monospace"># id · code UQ (L-005)</text>
+<text x="436" y="374" fill="#4f5d75" font-size="9" font-family="'Geist Mono',monospace">→ room_id · category</text>
+<text x="436" y="392" fill="#4f5d75" font-size="9" font-family="'Geist Mono',monospace">name_en · x_pct · y_pct</text>
+<text x="436" y="410" fill="#4f5d75" font-size="9" font-family="'Geist Mono',monospace">installed_at · notes</text>
+<text x="436" y="428" fill="#4f5d75" font-size="9" font-family="'Geist Mono',monospace">is_active</text>
+<text x="436" y="446" fill="#4f5d75" font-size="9" font-family="'Geist Mono',monospace">Σ computed, never stored</text>
+</g>
+<g>
+<rect x="800" y="300" width="320" height="174" rx="6" fill="#f5f5f5" stroke="rgba(45,49,66,0.03)"/>
+<rect x="800" y="300" width="320" height="174" rx="6" fill="rgba(45,49,66,0.05)" stroke="#4f5d75" stroke-width="1"/>
+<rect x="808" y="308" width="52" height="12" rx="2" fill="transparent" stroke="rgba(79,93,117,0.40)" stroke-width="0.8"/>
+<text x="834" y="317" fill="rgba(79,93,117,0.8)" font-size="7" font-family="'Geist Mono',monospace" text-anchor="middle" letter-spacing="0.08em">ENTITY</text>
+<text x="960" y="332" fill="#2d3142" font-size="12" font-weight="600" font-family="'Geist',sans-serif" text-anchor="middle">equipments</text>
+<text x="816" y="356" fill="#4f5d75" font-size="9" font-family="'Geist Mono',monospace"># id · → point_id</text>
+<text x="816" y="374" fill="#4f5d75" font-size="9" font-family="'Geist Mono',monospace">serial_no · brand_model</text>
+<text x="816" y="392" fill="#4f5d75" font-size="9" font-family="'Geist Mono',monospace">installed_at · removed_at</text>
+<text x="816" y="410" fill="#4f5d75" font-size="9" font-family="'Geist Mono',monospace">status: active/retired</text>
+<text x="816" y="428" fill="#4f5d75" font-size="9" font-family="'Geist Mono',monospace">notes</text>
+</g>
+<!-- ROW 3 -->
+<g>
+<rect x="420" y="500" width="320" height="192" rx="6" fill="#f5f5f5" stroke="rgba(45,49,66,0.03)"/>
+<rect x="420" y="500" width="320" height="192" rx="6" fill="rgba(45,49,66,0.05)" stroke="#4f5d75" stroke-width="1"/>
+<rect x="428" y="508" width="52" height="12" rx="2" fill="transparent" stroke="rgba(79,93,117,0.40)" stroke-width="0.8"/>
+<text x="454" y="517" fill="rgba(79,93,117,0.8)" font-size="7" font-family="'Geist Mono',monospace" text-anchor="middle" letter-spacing="0.08em">ENTITY</text>
+<text x="580" y="532" fill="#2d3142" font-size="12" font-weight="600" font-family="'Geist',sans-serif" text-anchor="middle">reports</text>
+<text x="436" y="556" fill="#4f5d75" font-size="9" font-family="'Geist Mono',monospace"># id · → point_id</text>
+<text x="436" y="574" fill="#4f5d75" font-size="9" font-family="'Geist Mono',monospace">→ equipment_id NULL</text>
+<text x="436" y="592" fill="#4f5d75" font-size="9" font-family="'Geist Mono',monospace">symptom · photo</text>
+<text x="436" y="610" fill="#4f5d75" font-size="9" font-family="'Geist Mono',monospace">→ reporter_id · reported_at</text>
+<text x="436" y="628" fill="#4f5d75" font-size="9" font-family="'Geist Mono',monospace">status · note</text>
+</g>
+<g>
+<rect x="800" y="500" width="320" height="174" rx="6" fill="#f5f5f5" stroke="rgba(45,49,66,0.03)"/>
+<rect x="800" y="500" width="320" height="174" rx="6" fill="rgba(45,49,66,0.05)" stroke="#4f5d75" stroke-width="1"/>
+<rect x="808" y="508" width="52" height="12" rx="2" fill="transparent" stroke="rgba(79,93,117,0.40)" stroke-width="0.8"/>
+<text x="834" y="517" fill="rgba(79,93,117,0.8)" font-size="7" font-family="'Geist Mono',monospace" text-anchor="middle" letter-spacing="0.08em">ENTITY</text>
+<text x="960" y="532" fill="#2d3142" font-size="12" font-weight="600" font-family="'Geist',sans-serif" text-anchor="middle">repairs</text>
+<text x="816" y="556" fill="#4f5d75" font-size="9" font-family="'Geist Mono',monospace"># id · → report_id</text>
+<text x="816" y="574" fill="#4f5d75" font-size="9" font-family="'Geist Mono',monospace">→ technician_id</text>
+<text x="816" y="592" fill="#4f5d75" font-size="9" font-family="'Geist Mono',monospace">action · cost</text>
+<text x="816" y="610" fill="#4f5d75" font-size="9" font-family="'Geist Mono',monospace">repaired_at · attachment</text>
+<text x="816" y="628" fill="#4f5d75" font-size="9" font-family="'Geist Mono',monospace">note</text>
+</g>
+<!-- legend -->
+<line x1="40" y1="732" x2="1120" y2="732" stroke="rgba(45,49,66,0.10)" stroke-width="0.8"/>
+<text x="40" y="748" fill="#4f5d75" font-size="8" font-family="'Geist Mono',monospace" letter-spacing="0.18em">LEGEND</text>
+<rect x="40" y="760" width="60" height="16" rx="2" fill="rgba(235,108,54,0.08)" stroke="#eb6c36" stroke-width="1"/>
+<text x="108" y="772" fill="#4f5d75" font-size="8" font-family="'Geist',sans-serif">Aggregate root</text>
+<text x="260" y="772" fill="#4f5d75" font-size="8" font-family="'Geist Mono',monospace"># PK · → FK · UQ unique</text>
+<text x="560" y="772" fill="#4f5d75" font-size="8" font-family="'Geist Mono',monospace">1 — N cardinality at line ends</text>
+</svg>
+<footer>APTC-Electrical and Building · er-model (conceptual) · diagram-design default skin</footer>
+</div>
+</body>
+</html>
